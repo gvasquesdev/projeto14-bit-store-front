@@ -1,11 +1,14 @@
 import styled from "styled-components";
+import { HeaderWithoutButtons } from "../components/Header";
 
 export default function SignIn () {
     return (
         <>
-            <Container>
-                <h1>IN DEVELOPMENT</h1>
-            </Container> 
+            <HeaderWithoutButtons>
+                <Container>
+                    <h1>IN DEVELOPMENT</h1>
+                </Container> 
+            </HeaderWithoutButtons>
         </>
     )
 }

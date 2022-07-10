@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom"
-
 import UserContext from "./contexts/UserContext.js"
 import GlobalStyle from "./styles/GlobalStyles.js"
 import Home from "./pages/Home.js"
