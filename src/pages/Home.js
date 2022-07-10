@@ -1,11 +1,14 @@
 import styled from "styled-components";
+import { HeaderWithButtons } from "../components/Header.js";
 
 export default function Home () {
     return (
         <>
-            <Container>
-                <h1>IN DEVELOPMENT</h1>
-            </Container> 
+            <HeaderWithButtons>
+                <Container>
+                    <h1>IN DEVELOPMENT</h1>
+                </Container> 
+            </HeaderWithButtons>
         </>
     )
 }
