@@ -84,7 +84,7 @@ export default function Cart () {
     const displayUserCart = userCart.map(( product, index ) => {
         return (
             <>
-                <Product key={index} getUserCart={getUserCart} cartIndex={index} name={product.name} price={product.price} image={product.image} quantity={product.quantity} />
+                <Product key={index} getUserCart={getUserCart} name={product.name} price={product.price} image={product.image} quantity={product.quantity} />
                 <Separator />
             </>
 

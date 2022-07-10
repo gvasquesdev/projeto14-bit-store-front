@@ -21,11 +21,11 @@ export default function App () {
         <UserContext.Provider value={{ config, setConfig, loading, setLoading }}>
             <GlobalStyle />
             <Routes>
-                <Route path="/" element={<Cart />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/minha-conta" element={<User />} />
                 <Route path="/login" element={<SignIn />} />
                 <Route path="/cadastro" element={<SignUp />} />
-                <Route path="/carrinho" element={<Home />} />
+                <Route path="/carrinho" element={<Cart />} />
             </Routes>
         </UserContext.Provider>
     )
