@@ -7,6 +7,7 @@ import axios from "axios"
 import dayjs from "dayjs";
 
 import UserContext from "../contexts/UserContext.js"
+import { HeaderWithButtons } from "../components/Header";
 
 export default function Cart () {
     const navigate = useNavigate()
@@ -37,7 +38,7 @@ export default function Cart () {
         })
         promise.catch( err => {
             setLoading(false)
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 setCartStatus("unregistered")
             }
         })
@@ -71,7 +72,7 @@ export default function Cart () {
         })
         promise.catch( err => {
             setLoading(false)
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 alert("Houve um erro com a autenticação do cliente, por favor faça login novamente")
                 navigate("/login")
             }
@@ -94,7 +95,8 @@ export default function Cart () {
 
     return (
         <>
-            <Container>
+            <HeaderWithButtons />
+            <Container> 
                 <h1>Meu carrinho</h1>
                 <Separator />
                 {loading ? null : userCart.length ? null : cartStatus === "registered" ?
@@ -156,7 +158,7 @@ const StyledOl = styled.ol`
 
 const Container = styled.div`
 	width: 100vw;
-    height: auto;
+    height: 2000px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -20,7 +20,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
         })
         promise.catch( err => {
             setLoading(false)
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 alert("Houve um erro com a autenticação do cliente, por favor faça login novamente")
                 navigate("/login")
             } else {
@@ -40,7 +40,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
         })
         promise.catch( err => {
             setLoading(false)
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 alert("Houve um erro com a autenticação do cliente, por favor faça login novamente")
                 navigate("/login")
             } else {
@@ -60,7 +60,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
         })
         promise.catch( err => {
             setLoading(false)
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 alert("Houve um erro com a autenticação do cliente, por favor faça login novamente")
                 navigate("/login")
             } else {

@@ -14,13 +14,6 @@ export default function User () {
     const [ userEmail, setUserEmail ] = useState("")
     const [ userOrders, setUserOrders ] = useState([1])
 
-    const userOrders2 = [{products:
-        [ { name: "mouse1 dadasdsa dasdasdasd adasdasda dasdadasdadssadadasdasdas", price: 19.9, image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-marvo-scorpion-g941-12000dpi-9-botoes-rgb-black_112118.png", department: "Mouse", quantity: 3 }, 
-        {  name: "mouse2", price: 29.9, image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-marvo-scorpion-g941-12000dpi-9-botoes-rgb-black_112118.png", department: "Mouse", quantity: 1 } ],
-        price: 89.6, address: "rua do bananal", date: "09/07/2022" },         {products:
-            [ { name: "mouse2", price: 29.9, image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-marvo-scorpion-g941-12000dpi-9-botoes-rgb-black_112118.png", department: "Mouse", quantity: 3 }, 
-            {  name: "mouse4", price: 49.9, image: "https://img.terabyteshop.com.br/produto/g/mouse-gamer-marvo-scorpion-g941-12000dpi-9-botoes-rgb-black_112118.png", department: "Mouse", quantity: 1 } ],
-            price: 139.6, address: "rua do bananal", date: "10/07/2022" }]
 
     useEffect(() => {
         getUserData()
@@ -36,7 +29,7 @@ export default function User () {
             setUserOrders(res.data.userOrders)
         })
         promise.catch( err => {
-            if(err.status === 401) {
+            if(err.response.status === 401) {
                 alert("Houve um erro com a autenticação do cliente, por favor faça login novamente")
                 navigate("/login")     
             }
@@ -44,7 +37,7 @@ export default function User () {
 
     }
 
-    const displayUserOrders = userOrders2.map(( order, index ) => {
+    const displayUserOrders = userOrders.map(( order, index ) => {
         return (
             <>
                 <Order key={index} index={index+1} products={order.products} price={order.price} address={order.address} date={order.date} />
