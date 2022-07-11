@@ -12,7 +12,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
 
     function removeFromCart () {
         setLoading(true)
-        const promise = axios.post("http://localhost:5000/removefromcart", {name}, config)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/removefromcart", {name}, config)
 
         promise.then( res => {
             setLoading(false)
@@ -32,7 +32,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
 
     function increaseProductQuantity () {
         setLoading(true)
-        const promise = axios.post("http://localhost:5000/increaseproductquantity", {name}, config)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/increaseproductquantity", {name}, config)
 
         promise.then( res => {
             setLoading(false)
@@ -52,7 +52,7 @@ export default function Product ({ getUserCart, name, price, image, quantity }) 
 
     function decreaseProductQuantity () {
         setLoading(true)
-        const promise = axios.post("http://localhost:5000/decreaseproductquantity", {name}, config)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/decreaseproductquantity", {name}, config)
 
         promise.then( res => {
             setLoading(false)

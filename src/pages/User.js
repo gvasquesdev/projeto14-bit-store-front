@@ -10,7 +10,7 @@ import { HeaderWithButtons } from "../components/Header";
 export default function User () {
 
     const navigate = useNavigate()
-    const { config } = useContext(UserContext)
+    const { config, setConfig } = useContext(UserContext)
     const [ userName, setUserName ] = useState("")
     const [ userEmail, setUserEmail ] = useState("")
     const [ userOrders, setUserOrders ] = useState([])
@@ -22,7 +22,7 @@ export default function User () {
 
     function getUserData () {
 
-        const promise = axios.get("http://localhost:5000/sales", config)
+        const promise = axios.get("https://bit-store-back.herokuapp.com/sales", config)
 
         promise.then( res => {
             setUserName(res.data.user.name)
@@ -40,6 +40,7 @@ export default function User () {
 
     function logout () {
         localStorage.removeItem("config")
+        setConfig("")
         navigate("/login")
     }
 
@@ -98,7 +99,7 @@ const Container = styled.div`
     justify-content: center;
     padding: 0 4%;
 	background-color: #FFFFFF;
-    margin-top: 12vh;
+    margin: 12vh 0;
 
     > h1 {
         width: 100%;

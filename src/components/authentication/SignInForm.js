@@ -28,7 +28,7 @@ export default function SignInForm () {
             password: passwordLogin
         }
 
-        const promise = axios.post("http://localhost:5000/signIn", body)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/signIn", body)
 
         promise.then( res => {
             localStorage.setItem("config", res.data.token)

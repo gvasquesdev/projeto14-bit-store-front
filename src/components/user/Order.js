@@ -47,7 +47,7 @@ const Product = styled.div`
     align-items: center;
 
     div {
-        width: 80%;
+        width: 65%;
         height: auto;
         display: flex;
         align-items: center;
@@ -66,7 +66,7 @@ const Product = styled.div`
         font-family: 'Lato';
         font-style: normal;
         font-weight: 700;
-        font-size: 17px;
+        font-size: 15px;
         line-height: 20px;
 
         color: #5F5F5F;
@@ -77,11 +77,12 @@ const Product = styled.div`
     }
 
     h2:nth-child(3) {
-        width: 70%;
+        width: 65%;
     }
 
     h3 {
         width: auto;
+        white-space: nowrap;
         text-align: right;
         font-family: 'Lato';
         font-style: normal;
@@ -138,7 +139,7 @@ const Container = styled.div`
         line-height: 20px;
 
         color: #5F5F5F;
-        margin: 0 0 1vh;
+        margin: 0 2vw 1vh 0;
     }
     > div h4 {
         width: auto;
