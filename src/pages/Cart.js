@@ -29,12 +29,12 @@ export default function Cart () {
 	}, [userCart]);
 
     function getUserCart () {
-        const promise = axios.get("http://localhost:5000/carts", null, config)
+        const promise = axios.get("http://localhost:5000/carts", config)
 
         promise.then( res => {
             setLoading(false)
             setCartStatus("registered")
-            setUserCart(res.data.products)
+            setUserCart(res.data)
         })
         promise.catch( err => {
             setLoading(false)
@@ -77,8 +77,6 @@ export default function Cart () {
                 navigate("/login")
             }
         })
-
-
 
     }
 
