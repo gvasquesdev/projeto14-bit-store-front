@@ -5,14 +5,15 @@ import axios from "axios"
 
 import UserContext from "../contexts/UserContext.js"
 import Order from "../components/user/Order.js"
+import { HeaderWithButtons } from "../components/Header";
 
 export default function User () {
 
     const navigate = useNavigate()
     const { config } = useContext(UserContext)
-    const [ userName, setUserName ] = useState("a")
+    const [ userName, setUserName ] = useState("")
     const [ userEmail, setUserEmail ] = useState("")
-    const [ userOrders, setUserOrders ] = useState([1])
+    const [ userOrders, setUserOrders ] = useState([])
 
 
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function User () {
 
     function getUserData () {
 
-        const promise = axios.get("http://localhost:5000/sales", null, config)
+        const promise = axios.get("http://localhost:5000/sales", config)
 
         promise.then( res => {
             setUserName(res.data.user.name)
@@ -35,6 +36,11 @@ export default function User () {
             }
         })
 
+    }
+
+    function logout () {
+        localStorage.removeItem("config")
+        navigate("/login")
     }
 
     const displayUserOrders = userOrders.map(( order, index ) => {
@@ -51,6 +57,7 @@ export default function User () {
 
     return (
         <>
+            <HeaderWithButtons />
             <Container>
                 {userName.length ? 
                 <>
@@ -58,6 +65,7 @@ export default function User () {
                     <Separator />
                     <h2> Olá, {userName}</h2>
                     <h3>email cadastrado: {userEmail}</h3>
+                    <button onClick={logout}>Deslogar</button>
                     <Separator />
                     <h1>Meus pedidos</h1>
                     {userOrders.length ? 
@@ -90,7 +98,7 @@ const Container = styled.div`
     justify-content: center;
     padding: 0 4%;
 	background-color: #FFFFFF;
-    margin-top: 8vh;
+    margin-top: 12vh;
 
     > h1 {
         width: 100%;
@@ -135,6 +143,25 @@ const Container = styled.div`
 
         color: #8f8f8f;
         margin: 0 0 2vh;
+    }
+
+    button {
+        width: 50vw;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        font-family: 'Lato';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
+        border: 0;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 2vh;
+
+        color: #FFFFFF;
+        background: #01BC84;
     }
 `;
 
