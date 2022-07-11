@@ -6,7 +6,7 @@ import Home from "./pages/Home.js"
 import User from "./pages/User.js"
 import SignIn from "./pages/SignIn.js"
 import SignUp from "./pages/SignUp.js"
-import Cart from "./pages/Cart.js"
+import Cart from "./pages/Cart.js"   
 
 
 

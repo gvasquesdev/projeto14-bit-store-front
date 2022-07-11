@@ -28,7 +28,7 @@ export default function Cart () {
 	}, [userCart]);
 
     function getUserCart () {
-        const promise = axios.get("http://localhost:5000/carts", null, config)
+        const promise = axios.get("https://localhost:5000/carts", null, config)
 
         promise.then( res => {
             setLoading(false)
