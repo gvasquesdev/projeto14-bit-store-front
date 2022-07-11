@@ -33,7 +33,7 @@ export default function SignUpForm () {
             password
         }
 
-        const promise = axios.post("http://localhost:5000/signUp", body)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/signUp", body)
 
         promise.then( res => {
             setLoading(false)

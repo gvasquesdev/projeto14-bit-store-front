@@ -14,7 +14,7 @@ export function HeaderWithButtons () {
 
     function checkLogin () {
 
-        const promise = axios.get("http://localhost:5000/sales", config)
+        const promise = axios.get("https://bit-store-back.herokuapp.com/sales", config)
 
         promise.then( res => {
             navigate("/minha-conta")

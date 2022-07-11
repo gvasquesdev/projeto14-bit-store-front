@@ -29,7 +29,7 @@ export default function Cart () {
 	}, [userCart]);
 
     function getUserCart () {
-        const promise = axios.get("http://localhost:5000/carts", config)
+        const promise = axios.get("https://bit-store-back.herokuapp.com/carts", config)
 
         promise.then( res => {
             setLoading(false)
@@ -63,7 +63,7 @@ export default function Cart () {
             date: dayjs(Date.now()).format("DD/MM/YYYY")
         }
 
-        const promise = axios.post("http://localhost:5000/sales", body, config)
+        const promise = axios.post("https://bit-store-back.herokuapp.com/sales", body, config)
 
         promise.then( res => {
             setLoading(false)
@@ -156,7 +156,7 @@ const StyledOl = styled.ol`
 
 const Container = styled.div`
 	width: 100vw;
-    height: 2000px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
